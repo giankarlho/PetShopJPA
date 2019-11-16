@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MascotaEditDlg" widgetVar="MascotaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vista.EditMascotaTitle}">
+            <h:form id="MascotaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{mascotaController.selected != null}">
+                        <p:outputLabel value="#{vista.EditMascotaLabel_idMascota}" for="idMascota" />
+                        <p:inputText id="idMascota" value="#{mascotaController.selected.idMascota}" title="#{vista.EditMascotaTitle_idMascota}" />
+                 
+                        <p:outputLabel value="#{vista.EditMascotaLabel_dueno}" for="dueno" />
+                        <p:selectOneMenu id="dueno" value="#{mascotaController.selected.dueno}" >
+                            <f:selectItem itemLabel="#{vista.SelectOneMessage}"/>
+                            <f:selectItems value="#{duenoController.itemsAvailableSelectOne}"
+                                           var="duenoItem"
+                                           itemValue="#{duenoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{vista.EditMascotaLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{mascotaController.selected.nombre}" title="#{vista.EditMascotaTitle_nombre}" />
+                        <p:outputLabel value="#{vista.EditMascotaLabel_raza}" for="raza" />
+                        <p:inputText id="raza" value="#{mascotaController.selected.raza}" title="#{vista.EditMascotaTitle_raza}" />
+                        <p:outputLabel value="#{vista.EditMascotaLabel_tipo}" for="tipo" />
+                        <p:selectOneMenu id="tipo" value="#{mascotaController.selected.tipo}" >
+                            <f:selectItem itemLabel="#{vista.SelectOneMessage}"/>
+                            <f:selectItems value="#{tipoMascotaController.itemsAvailableSelectOne}"
+                                           var="tipoItem"
+                                           itemValue="#{tipoItem}"/>
+                        </p:selectOneMenu>
+                           </p:panelGrid>
+                    <p:commandButton actionListener="#{mascotaController.update}" value="#{vista.Save}" update="display,:MascotaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MascotaEditDialog');"/>
+                    <p:commandButton value="#{vista.Cancel}" onclick="MascotaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

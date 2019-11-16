@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DuenoEditDlg" widgetVar="DuenoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vista.EditDuenoTitle}">
+            <h:form id="DuenoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{duenoController.selected != null}">
+                        <p:outputLabel value="#{vista.EditDuenoLabel_idDueno}" for="idDueno" />
+                        <p:inputText id="idDueno" value="#{duenoController.selected.idDueno}" title="#{vista.EditDuenoTitle_idDueno}" />
+                        <p:outputLabel value="#{vista.EditDuenoLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{duenoController.selected.nombre}" title="#{vista.EditDuenoTitle_nombre}" />
+                        <p:outputLabel value="#{vista.EditDuenoLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{duenoController.selected.celular}" title="#{vista.EditDuenoTitle_celular}" />
+                        <p:outputLabel value="#{vista.EditDuenoLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{duenoController.selected.direccion}" title="#{vista.EditDuenoTitle_direccion}" />
+                        <p:outputLabel value="#{vista.EditDuenoLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{duenoController.selected.email}" title="#{vista.EditDuenoTitle_email}" />                        
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{duenoController.update}" value="#{vista.Save}" update="display,:DuenoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DuenoEditDialog');"/>
+                    <p:commandButton value="#{vista.Cancel}" onclick="DuenoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
