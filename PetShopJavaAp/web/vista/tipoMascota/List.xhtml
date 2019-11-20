@@ -26,6 +26,7 @@
 
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{vista.ListTipoMascotaTitle_idTipoMascota}"/>
@@ -38,7 +39,6 @@
                             </f:facet>
                             <h:outputText value="#{item.nombre}"/>
                         </p:column>
-
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{vista.Create}" actionListener="#{tipoMascotaController.prepareCreate}" update=":TipoMascotaCreateForm" oncomplete="PF('TipoMascotaCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{vista.View}" update=":TipoMascotaViewForm" oncomplete="PF('TipoMascotaViewDialog').show()" disabled="#{empty tipoMascotaController.selected}"/>

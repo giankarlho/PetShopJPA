@@ -34,10 +34,17 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
+                                <h:outputText value="#{vista.ListMascotaTitle_tipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipo.nombre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{vista.ListMascotaTitle_dueno}"/>
                             </f:facet>
-                            <h:outputText value="#{item.dueno}"/>
+                            <h:outputText value="#{item.dueno.nombre}"/>
                         </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{vista.ListMascotaTitle_nombre}"/>
@@ -50,13 +57,6 @@
                             </f:facet>
                             <h:outputText value="#{item.raza}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{vista.ListMascotaTitle_tipo}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tipo}"/>
-                        </p:column>
-
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{vista.Create}" actionListener="#{mascotaController.prepareCreate}" update=":MascotaCreateForm" oncomplete="PF('MascotaCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{vista.View}" update=":MascotaViewForm" oncomplete="PF('MascotaViewDialog').show()" disabled="#{empty mascotaController.selected}"/>

@@ -75,9 +75,10 @@ public class DuenoController implements Serializable {
     }
 
     public List<Dueno> getItems() {
-        if (items == null) {
+//        if (items == null) {
             items = getFacade().findAll();
-        }
+            items = getFacade().buscarActivos();
+//        }
         return items;
     }
 

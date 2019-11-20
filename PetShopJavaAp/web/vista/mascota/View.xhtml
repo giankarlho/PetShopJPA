@@ -12,17 +12,16 @@
             <h:form id="MascotaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{mascotaController.selected != null}">
-                         <h:outputText value="#{mascotaController.selected.idMascota}" title="#{vista.ViewMascotaTitle_idMascota}"/>
+                        <h:outputText value="#{vista.ViewMascotaLabel_tipo}"/>
+                        <h:outputText value="#{mascotaController.selected.tipo}" title="#{vista.ViewMascotaTitle_tipo}"/>
                         <h:outputText value="#{vista.ViewMascotaLabel_dueno}"/>
                         <h:outputText value="#{mascotaController.selected.dueno}" title="#{vista.ViewMascotaTitle_dueno}"/>
+                        <h:outputText value="#{vista.ViewMascotaLabel_idMascota}"/>
+                        <h:outputText value="#{mascotaController.selected.idMascota}" title="#{vista.ViewMascotaTitle_idMascota}"/>
                         <h:outputText value="#{vista.ViewMascotaLabel_nombre}"/>
                         <h:outputText value="#{mascotaController.selected.nombre}" title="#{vista.ViewMascotaTitle_nombre}"/>
                         <h:outputText value="#{vista.ViewMascotaLabel_raza}"/>
                         <h:outputText value="#{mascotaController.selected.raza}" title="#{vista.ViewMascotaTitle_raza}"/>
-                        <h:outputText value="#{vista.ViewMascotaLabel_tipo}"/>
-                        <h:outputText value="#{mascotaController.selected.tipo}" title="#{vista.ViewMascotaTitle_tipo}"/>
-                        <h:outputText value="#{vista.ViewMascotaLabel_idMascota}"/>
-                       
                     </p:panelGrid>
                     <p:commandButton value="#{vista.Close}" onclick="MascotaViewDialog.hide()"/>
                 </h:panelGroup>

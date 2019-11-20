@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -17,7 +18,7 @@ public class Dueno implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Dueno")
     private Integer idDueno;
     @Size(min = 3, max = 50)
@@ -34,7 +35,9 @@ public class Dueno implements Serializable {
     private String email;
     @OneToMany(mappedBy = "dueno")
     private List<Mascota> mascotas;
-
+    @Transient
+    private int nroMascotas;
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -108,6 +111,11 @@ public class Dueno implements Serializable {
 
     public void setIdDueno(Integer idDueno) {
         this.idDueno = idDueno;
+    }
+
+    public int getNroMascotas() {
+        nroMascotas = mascotas.size();
+        return nroMascotas;
     }
 
 }

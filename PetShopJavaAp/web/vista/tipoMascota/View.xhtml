@@ -12,11 +12,10 @@
             <h:form id="TipoMascotaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipoMascotaController.selected != null}">
-                         <h:outputText value="#{vista.ViewTipoMascotaLabel_idTipoMascota}"/>
+                        <h:outputText value="#{vista.ViewTipoMascotaLabel_idTipoMascota}"/>
                         <h:outputText value="#{tipoMascotaController.selected.idTipoMascota}" title="#{vista.ViewTipoMascotaTitle_idTipoMascota}"/>
                         <h:outputText value="#{vista.ViewTipoMascotaLabel_nombre}"/>
                         <h:outputText value="#{tipoMascotaController.selected.nombre}" title="#{vista.ViewTipoMascotaTitle_nombre}"/>
-                       
                     </p:panelGrid>
                     <p:commandButton value="#{vista.Close}" onclick="TipoMascotaViewDialog.hide()"/>
                 </h:panelGroup>

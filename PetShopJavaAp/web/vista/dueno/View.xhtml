@@ -12,16 +12,16 @@
             <h:form id="DuenoViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{duenoController.selected != null}">
+                        <h:outputText value="#{vista.ViewDuenoLabel_idDueno}"/>
                         <h:outputText value="#{duenoController.selected.idDueno}" title="#{vista.ViewDuenoTitle_idDueno}"/>
                         <h:outputText value="#{vista.ViewDuenoLabel_nombre}"/>
                         <h:outputText value="#{duenoController.selected.nombre}" title="#{vista.ViewDuenoTitle_nombre}"/>
-                        <h:outputText value="#{vista.ViewDuenoLabel_celular}"/>
-                        <h:outputText value="#{duenoController.selected.celular}" title="#{vista.ViewDuenoTitle_celular}"/>
-                        <h:outputText value="#{vista.ViewDuenoLabel_direccion}"/>
-                        <h:outputText value="#{duenoController.selected.direccion}" title="#{vista.ViewDuenoTitle_direccion}"/>
+                        <h:outputText value="#{vista.ViewDuenoLabel_dni}"/>
+                        <h:outputText value="#{duenoController.selected.dni}" title="#{vista.ViewDuenoTitle_dni}"/>
                         <h:outputText value="#{vista.ViewDuenoLabel_email}"/>
                         <h:outputText value="#{duenoController.selected.email}" title="#{vista.ViewDuenoTitle_email}"/>
-                        <h:outputText value="#{vista.ViewDuenoLabel_idDueno}"/>                        
+                        <h:outputText value="#{vista.ViewDuenoLabel_nacimiento}"/>
+                        <h:outputText value="#{duenoController.selected.nacimiento}" title="#{vista.ViewDuenoTitle_nacimiento}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{vista.Close}" onclick="DuenoViewDialog.hide()"/>
                 </h:panelGroup>

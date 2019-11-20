@@ -41,9 +41,9 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{vista.ListConfiguracionTitle_tipoDato}"/>
+                                <h:outputText value="#{vista.ListConfiguracionTitle_tipoValor}"/>
                             </f:facet>
-                            <h:outputText value="#{item.tipoDato}"/>
+                            <h:outputText value="#{item.tipoValor}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{vista.Create}" actionListener="#{configuracionController.prepareCreate}" update=":ConfiguracionCreateForm" oncomplete="PF('ConfiguracionCreateDialog').show()"/>

@@ -1,19 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.petshop.model.dao;
 
 import com.petshop.model.entity.Dueno;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
-/**
- *
- * @author Giancarlo
- */
 @Stateless
 public class DuenoFacade extends AbstractFacade<Dueno> {
 
@@ -29,4 +22,12 @@ public class DuenoFacade extends AbstractFacade<Dueno> {
         super(Dueno.class);
     }
     
+    public List<Dueno> buscarActivos(){
+        List<Dueno> lista = null;
+        String jpql = "select d from Dueno d";
+        Query q = em.createQuery(jpql);
+        q.setHint("javax.persistence.cache.storeMode", "REFRESH");
+        lista = q.getResultList();
+        return lista;
+    }
 }

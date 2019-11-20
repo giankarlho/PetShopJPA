@@ -16,8 +16,8 @@
                         <p:inputText id="clave" value="#{configuracionController.selected.clave}" title="#{vista.EditConfiguracionTitle_clave}" required="true" requiredMessage="#{vista.EditConfiguracionRequiredMessage_clave}"/>
                         <p:outputLabel value="#{vista.EditConfiguracionLabel_valor}" for="valor" />
                         <p:inputText id="valor" value="#{configuracionController.selected.valor}" title="#{vista.EditConfiguracionTitle_valor}" />
-                        <p:outputLabel value="#{vista.EditConfiguracionLabel_tipoDato}" for="tipoDato" />
-                        <p:inputText id="tipoDato" value="#{configuracionController.selected.tipoDato}" title="#{vista.EditConfiguracionTitle_tipoDato}" />
+                        <p:outputLabel value="#{vista.EditConfiguracionLabel_tipoValor}" for="tipoValor" />
+                        <p:inputText id="tipoValor" value="#{configuracionController.selected.tipoValor}" title="#{vista.EditConfiguracionTitle_tipoValor}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{configuracionController.update}" value="#{vista.Save}" update="display,:ConfiguracionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ConfiguracionEditDialog');"/>
                     <p:commandButton value="#{vista.Cancel}" onclick="ConfiguracionEditDialog.hide()"/>

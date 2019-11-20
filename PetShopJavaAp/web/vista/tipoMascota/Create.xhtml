@@ -11,12 +11,8 @@
         <p:dialog id="TipoMascotaCreateDlg" widgetVar="TipoMascotaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vista.CreateTipoMascotaTitle}">
             <h:form id="TipoMascotaCreateForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{tipoMascotaController.selected != null}">
-                        <p:outputLabel value="#{vista.CreateTipoMascotaLabel_idTipoMascota}" for="idTipoMascota" />
-                        <p:inputText id="idTipoMascota" value="#{tipoMascotaController.selected.idTipoMascota}" title="#{vista.CreateTipoMascotaTitle_idTipoMascota}" />
-                        <p:outputLabel value="#{vista.CreateTipoMascotaLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{tipoMascotaController.selected.nombre}" title="#{vista.CreateTipoMascotaTitle_nombre}" />
-                        
+                    <p:panelGrid columns="2" rendered="#{tipoMascotaController.selected != null}">                                               <p:outputLabel value="#{vista.CreateTipoMascotaLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{tipoMascotaController.selected.nombre}" title="#{vista.CreateTipoMascotaTitle_nombre}" required="true" requiredMessage="#{vista.CreateTipoMascotaRequiredMessage_nombre}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{tipoMascotaController.create}" value="#{vista.Save}" update="display,:TipoMascotaListForm:datalist,:growl" oncomplete="handleSubmit(args,'TipoMascotaCreateDialog');"/>
                     <p:commandButton value="#{vista.Cancel}" onclick="TipoMascotaCreateDialog.hide()"/>

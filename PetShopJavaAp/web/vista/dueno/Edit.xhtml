@@ -15,13 +15,13 @@
                         <p:outputLabel value="#{vista.EditDuenoLabel_idDueno}" for="idDueno" />
                         <p:inputText id="idDueno" value="#{duenoController.selected.idDueno}" title="#{vista.EditDuenoTitle_idDueno}" />
                         <p:outputLabel value="#{vista.EditDuenoLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{duenoController.selected.nombre}" title="#{vista.EditDuenoTitle_nombre}" />
-                        <p:outputLabel value="#{vista.EditDuenoLabel_celular}" for="celular" />
-                        <p:inputText id="celular" value="#{duenoController.selected.celular}" title="#{vista.EditDuenoTitle_celular}" />
-                        <p:outputLabel value="#{vista.EditDuenoLabel_direccion}" for="direccion" />
-                        <p:inputText id="direccion" value="#{duenoController.selected.direccion}" title="#{vista.EditDuenoTitle_direccion}" />
+                        <p:inputText id="nombre" value="#{duenoController.selected.nombre}" title="#{vista.EditDuenoTitle_nombre}" required="true" requiredMessage="#{vista.EditDuenoRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{vista.EditDuenoLabel_dni}" for="dni" />
+                        <p:inputText id="dni" value="#{duenoController.selected.dni}" title="#{vista.EditDuenoTitle_dni}" required="true" requiredMessage="#{vista.EditDuenoRequiredMessage_dni}"/>
                         <p:outputLabel value="#{vista.EditDuenoLabel_email}" for="email" />
-                        <p:inputText id="email" value="#{duenoController.selected.email}" title="#{vista.EditDuenoTitle_email}" />                        
+                        <p:inputText id="email" value="#{duenoController.selected.email}" title="#{vista.EditDuenoTitle_email}" />
+                        <p:outputLabel value="#{vista.EditDuenoLabel_nacimiento}" for="nacimiento" />
+                        <p:inputText id="nacimiento" value="#{duenoController.selected.nacimiento}" title="#{vista.EditDuenoTitle_nacimiento}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{duenoController.update}" value="#{vista.Save}" update="display,:DuenoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DuenoEditDialog');"/>
                     <p:commandButton value="#{vista.Cancel}" onclick="DuenoEditDialog.hide()"/>

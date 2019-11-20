@@ -13,10 +13,9 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipoMascotaController.selected != null}">
                         <p:outputLabel value="#{vista.EditTipoMascotaLabel_idTipoMascota}" for="idTipoMascota" />
-                        <p:inputText id="idTipoMascota" value="#{tipoMascotaController.selected.idTipoMascota}" title="#{vista.EditTipoMascotaTitle_idTipoMascota}" />
+                        <p:inputText disabled="true" id="idTipoMascota" value="#{tipoMascotaController.selected.idTipoMascota}" title="#{vista.EditTipoMascotaTitle_idTipoMascota}" />
                         <p:outputLabel value="#{vista.EditTipoMascotaLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{tipoMascotaController.selected.nombre}" title="#{vista.EditTipoMascotaTitle_nombre}" />
-                        
+                        <p:inputText id="nombre" value="#{tipoMascotaController.selected.nombre}" title="#{vista.EditTipoMascotaTitle_nombre}" required="true" requiredMessage="#{vista.EditTipoMascotaRequiredMessage_nombre}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{tipoMascotaController.update}" value="#{vista.Save}" update="display,:TipoMascotaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TipoMascotaEditDialog');"/>
                     <p:commandButton value="#{vista.Cancel}" onclick="TipoMascotaEditDialog.hide()"/>
